@@ -1,0 +1,22 @@
+.nav{
+    grid-area: n;
+    background-color: rgb(224, 105, 8);
+    margin-right: 10px;
+    padding: 5px;
+    text-align: center;
+    
+    
+  
+}
+.nav a{
+    margin: 15px;
+    text-decoration: none;
+  
+    
+}
+.item a{
+    color: aquamarine;
+}
+.item a.active{
+    color: rgb(223, 202, 17);
+}

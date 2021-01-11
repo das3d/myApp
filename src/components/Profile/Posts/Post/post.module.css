@@ -1,0 +1,25 @@
+.post{
+    color:rgb(20, 216, 62);
+    display: flex;
+    
+}
+.pers{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.pers img{
+    border-radius: 50%;
+    overflow: hidden;
+    width: 60px;
+}
+.nameUser{
+    margin-left: 50px;
+    align-self: center;
+}
+.item{
+    align-self: center;
+
+}
+.btn{
+    height:15px;
+}

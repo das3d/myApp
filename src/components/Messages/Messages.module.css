@@ -1,0 +1,18 @@
+.messages{
+    color: black;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+.fUS{
+    
+    display: flex;
+    flex-direction: column;
+}
+.fUSe{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.area{
+    align-self: flex-end;
+}
