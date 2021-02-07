@@ -1,0 +1,10 @@
+.Avatar{
+    display: flex;
+}
+.Avatar img{
+    width: 400px;
+}
+.item{
+    align-self: center;
+    margin-left: 30%;
+}

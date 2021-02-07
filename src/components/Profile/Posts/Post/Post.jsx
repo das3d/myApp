@@ -3,7 +3,6 @@ import React from 'react';
 
 
 const Post = (props) => {
-debugger
   let post = React.createRef();
   let delPost = () =>{
     let pst = post.current.childElementCount - 1;

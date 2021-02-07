@@ -1,26 +1,33 @@
 import React from 'react';
 import s from './Friends.module.css';
+import { NavLink } from "react-router-dom";
+import * as axios from 'axios';
+import { followAPI } from '../../DAL/API';
 
-const Friends = (props) => {
-    
-    if (props.friendsData.length === 0) {
-        props.setData(
-            [
-                { name: "Shubert", id: 1, photos: { small: null, large: null }, status: null, followed: false },
-                { name: "Hacker", id: 2, photos: { small: null, large: null }, status: null, followed: true },
-                { name: "Shubert", id: 3, photos: { small: null, large: null }, status: null, followed: true }
-            ]
-        )
+
+
+let Friends = (props) => {
+    let pagesCount = Math.ceil(props.totalCount / 1000);
+    let pageNum = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pageNum.push(i);
     }
-    debugger
-    return <div>
+    return (<div>
+        <div className={s.numP}>
+            {pageNum.map(p => {
+
+                return <span className={props.currentPage === p && s.selectedPage} onClick={(e) => { props.onChangePage(p) }}>{p}</span>
+            })}
+        </div>
         {props.friendsData.map(d => <div key={d.id}>
             <div className={s.image}>
-                <img src={d.photos.large} />
+                <NavLink to={`/Profile/${d.id}`}>
+                    <img src={d.photos.small !== null ? d.photos.small : "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png"} />
+                </NavLink>
                 <div className="">
-                    {d.followed == true
-                        ? <button onClick={() => { props.follow(d.id) }}>Follow</button>
-                        : <button onClick={() => { props.unFollow(d.id) }}>Unfollow</button>}
+                    {d.followed
+                        ? <button onClick={() => {props.unfollowTH(d.id)}}>Unfollow</button>
+                        : <button onClick={() => { props.followTH(d.id)}}>Follow</button>}
                 </div>
 
 
@@ -34,6 +41,6 @@ const Friends = (props) => {
 
         )
         }
-    </div>
+    </div>)
 }
 export default Friends;
